@@ -19,7 +19,7 @@ if (__name__ == "__main__"):
 		beginning = datetime(1, 1, 1)
 		output = beginning+relativedelta( microseconds=microseconds)
 		output = output+relativedelta( years=-1, days=-13)
-		print output.strftime("%d %B %Y %A %I.%M %p")
+		print output.strftime("%B %d, %Y %A %I.%M %p")
 	if(filename is not None):
 		print filename
 		pattern = re.compile(r'(.+)_(\d+)(\S+)')
@@ -29,6 +29,6 @@ if (__name__ == "__main__"):
 		beginning = datetime(1, 1, 1)
 		output = beginning+relativedelta( microseconds=microseconds)
 		output = output+relativedelta( years=-1, days=-13)
-		newFilename = str(result[0]) + ' ' + str(output.strftime("%d %B %Y %A %I.%M %p")) + str(result[2])
+		newFilename = str(result[0]) + ' ' + str(output.strftime("%B %d, %Y %A %I.%M %p")) + str(result[2])
 		print newFilename
 		os.renames(filename, newFilename)
