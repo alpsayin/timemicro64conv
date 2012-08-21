@@ -13,12 +13,13 @@ if (__name__ == "__main__"):
 	(option, args) = parser.parse_args()
 	# print args
 	microseconds=option.inputTime
+	microseconds=63513828028326875
 	filename=option.inputFile
 	if(microseconds is not None):
 		beginning = datetime(1, 1, 1)
 		output = beginning+relativedelta( microseconds=microseconds)
 		output = output+relativedelta( years=-1, days=-13)
-		print output
+		print output.strftime("%I.%M %p %A %d, %B %Y")
 	if(filename is not None):
 		print filename
 		pattern = re.compile(r'(.+)_(\d+)(\S+)')
@@ -28,6 +29,6 @@ if (__name__ == "__main__"):
 		beginning = datetime(1, 1, 1)
 		output = beginning+relativedelta( microseconds=microseconds)
 		output = output+relativedelta( years=-1, days=-13)
-		newFilename = str(result[0]) + '_' + str(output) + str(result[2])
+		newFilename = str(result[0]) + '_' + str(output.strftime("%I.%M %p %A %d, %B %Y")) + str(result[2])
 		print newFilename
 		os.renames(filename, newFilename)
